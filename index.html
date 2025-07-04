@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Resource Packs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8927713821265553" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0ff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(10, 15, 30, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: #4facfe;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #aaccff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(79, 172, 254, 0.2);
+            color: #fff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 5% 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #ccd6f6;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            color: #0f172a;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 242, 254, 0.4);
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 5% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(20, 30, 60, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            flex: 1;
+            max-width: 350px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 172, 254, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(79, 172, 254, 0.4);
+        }
+
+        .feature-card i {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: #4facfe;
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            color: #aaccff;
+            line-height: 1.6;
+        }
+
+        .packs-section {
+            padding: 80px 5%;
+            background: rgba(10, 15, 30, 0.6);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .section-title p {
+            color: #aaccff;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .packs-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pack {
+            background: rgba(20, 30, 60, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 172, 254, 0.2);
+        }
+
+        .pack:hover {
+            transform: translateY(-10px);
+            border-color: rgba(79, 172, 254, 0.4);
+        }
+
+        .pack-img {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .pack-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .pack:hover .pack-img img {
+            transform: scale(1.05);
+        }
+
+        .pack-content {
+            padding: 25px;
+        }
+
+        .pack-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .pack-content p {
+            color: #ccd6f6;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .pack-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            color: #aaccff;
+        }
+
+        .download-btn {
+            display: block;
+            text-align: center;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            color: #0f172a;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
+        }
+
+        footer {
+            background: rgba(10, 15, 30, 0.85);
+            padding: 40px 5% 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #4facfe;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: #aaccff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00f2fe;
+        }
+
+        .copyright {
+            color: #8892b0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(136, 146, 176, 0.2);
+            margin-top: 20px;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .ad-container {
+            margin: 40px auto;
+            text-align: center;
+            max-width: 1200px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(20, 30, 60, 0.3);
+            border: 1px solid rgba(79, 172, 254, 0.2);
+        }
+        
+        .ad-container-inside {
+            margin: 0 auto;
+            max-width: 728px;
+        }
+
+        @media (max-width: 900px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-card {
+                max-width: 500px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .ad-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="particles" id="particles"></div>
+    
+    <header>
+        <div class="logo">
+            <i class="fas fa-cube"></i>
+            <h1>MineCraftPacks</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-download"></i> Packs</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h2>Enhance Your Minecraft Experience</h2>
+        <p>Discover the best high-quality resource packs for Minecraft Java Edition. Transform your world with stunning visuals and optimized performance.</p>
+        <a href="#" class="cta-button">Explore Packs <i class="fas fa-arrow-right"></i></a>
+    </section>
+    
+    <!-- Ad after hero section -->
+    <div class="ad-container">
+        <div class="ad-container-inside">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8927713821265553" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-8927713821265553"
+                data-ad-slot="6356529068"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    
+    <section class="features">
+        <div class="feature-card">
+            <i class="fas fa-gem"></i>
+            <h3>High Quality</h3>
+            <p>All packs feature high-resolution textures created by professional designers for the best visual experience.</p>
+        </div>
+        
+        <div class="feature-card">
+            <i class="fas fa-bolt"></i>
+            <h3>Optimized</h3>
+            <p>Carefully optimized to maintain great performance even on mid-range systems without lag.</p>
+        </div>
+        
+        <div class="feature-card">
+            <i class="fas fa-cloud-download-alt"></i>
+            <h3>Easy Install</h3>
+            <p>One-click downloads with simple installation guides. Get your new pack running in minutes.</p>
+        </div>
+    </section>
+    
+    <!-- Ad after features -->
+    <div class="ad-container">
+        <div class="ad-container-inside">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8927713821265553" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-8927713821265553"
+                data-ad-slot="6356529068"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    
+    <section class="packs-section">
+        <div class="section-title">
+            <h2>Featured Resource Packs</h2>
+            <p>Our top picks that will completely transform your Minecraft world</p>
+        </div>
+        
+        <div class="packs-container">
+            <!-- Existing packs -->
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Faithful Pack">
+                </div>
+                <div class="pack-content">
+                    <h3>Faithful 32x</h3>
+                    <p>Cleaner vanilla style with higher resolution textures. Maintains the classic Minecraft look while enhancing every detail.</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> Vanilla, HD</span>
+                        <span><i class="fas fa-download"></i> 1.2M+ Downloads</span>
+                    </div>
+                    <a href="https://www.curseforge.com/minecraft/texture-packs/faithful-32x" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+            
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Realism Pack">
+                </div>
+                <div class="pack-content">
+                    <h3>Realism 128x</h3>
+                    <p>Hyper-realistic textures for immersive gameplay. Experience Minecraft like never before with stunningly detailed environments.</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> Realistic, HD</span>
+                        <span><i class="fas fa-download"></i> 850K+ Downloads</span>
+                    </div>
+                    <a href="https://www.curseforge.com/minecraft/texture-packs/realism-128x" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+            
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Fantasy Pack">
+                </div>
+                <div class="pack-content">
+                    <h3>Fantasy 64x</h3>
+                    <p>Magical themed textures perfect for RPG adventures. Bring a mystical feel to your worlds with this enchanting pack.</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> Fantasy, RPG</span>
+                        <span><i class="fas fa-download"></i> 650K+ Downloads</span>
+                    </div>
+                    <a href="https://www.curseforge.com/minecraft/texture-packs/fantasy-64x" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+            
+            <!-- Additional packs from search results -->
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="RealisCraft Pack">
+                </div>
+                <div class="pack-content">
+                    <h3>RealisCraft JE</h3>
+                    <p>Realistic look with detailed textures and natural lighting effects. Perfect for fans of natural aesthetics [citation:3].</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> Realistic, PBR</span>
+                        <span><i class="fas fa-download"></i> 494K+ Downloads</span>
+                    </div>
+                    <a href="https://www.curseforge.com/minecraft/texture-packs/realiscraft-je" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+            
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1602620502036-e52519d58d92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Enhanced Boss Bars">
+                </div>
+                <div class="pack-content">
+                    <h3>Enhanced Boss Bars</h3>
+                    <p>Improved boss bars with better visuals and clarity for intense boss battles [citation:1].</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> UI, Improvement</span>
+                        <span><i class="fas fa-download"></i> 21.4M+ Downloads</span>
+                    </div>
+                    <a href="https://www.curseforge.com/minecraft/texture-packs/enhanced-boss-bars" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+            
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Better Leaves">
+                </div>
+                <div class="pack-content">
+                    <h3>Better Leaves</h3>
+                    <p>Improves appearance of leaves with high mod compatibility and performance optimization [citation:1].</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> Nature, Optimization</span>
+                        <span><i class="fas fa-download"></i> 17.5M+ Downloads</span>
+                    </div>
+                    <a href="https://www.curseforge.com/minecraft/texture-packs/motschens-better-leaves" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ad after featured packs -->
+    <div class="ad-container">
+        <div class="ad-container-inside">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8927713821265553" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-8927713821265553"
+                data-ad-slot="6356529068"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    
+    <!-- Plugin Texture Packs Section -->
+    <section class="packs-section">
+        <div class="section-title">
+            <h2>Plugin Texture Packs</h2>
+            <p>Specialized packs designed to enhance popular Minecraft plugins</p>
+        </div>
+        
+        <div class="packs-container">
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1623874514711-0f321325f318?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Waystones">
+                </div>
+                <div class="pack-content">
+                    <h3>Fresh Waystones</h3>
+                    <p>Enhances textures from the Waystones mod with improved visuals and designs [citation:1].</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> Waystones, UI</span>
+                        <span><i class="fas fa-download"></i> 12.0M+ Downloads</span>
+                    </div>
+                    <a href="https://www.curseforge.com/minecraft/texture-packs/fresh-waystones-texture" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+            
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1587840171670-8b850147754e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Farmer's Delight">
+                </div>
+                <div class="pack-content">
+                    <h3>Farmer's Delight Compat</h3>
+                    <p>Adds Farmer's Delight compatibility to Repurposed Structures villages [citation:2].</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> Farming, Structures</span>
+                        <span><i class="fas fa-download"></i> 20.1M+ Downloads</span>
+                    </div>
+                    <a href="https://www.curseforge.com/minecraft/texture-packs/repurposed-structures-farmers-delight-compat-datapack" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+            
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1545036725-8aeaebf23ce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Xaero's Minimap">
+                </div>
+                <div class="pack-content">
+                    <h3>Icon Xaero's</h3>
+                    <p>Custom icons for Xaero's map and minimap with enhanced visibility and style [citation:1].</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> Map, UI</span>
+                        <span><i class="fas fa-download"></i> 12.6M+ Downloads</span>
+                    </div>
+                    <a href="https://www.curseforge.com/minecraft/texture-packs/icon-xaeros" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ad after plugin packs -->
+    <div class="ad-container">
+        <div class="ad-container-inside">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8927713821265553" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-8927713821265553"
+                data-ad-slot="6356529068"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    
+    <!-- Model Packs Section -->
+    <section class="packs-section">
+        <div class="section-title">
+            <h2>3D Model Packs</h2>
+            <p>Advanced packs that transform in-game models and animations</p>
+        </div>
+        
+        <div class="packs-container">
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Entity Tweaks">
+                </div>
+                <div class="pack-content">
+                    <h3>EntitiesTweaks</h3>
+                    <p>Dynamic animated entities that bring your Minecraft world to life [citation:4].</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> Animations, Models</span>
+                        <span><i class="fas fa-download"></i> 9.77M+ Downloads</span>
+                    </div>
+                    <a href="https://modrinth.com/resourcepack/entitiestweaks" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+            
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Golems Refreshed">
+                </div>
+                <div class="pack-content">
+                    <h3>Golems Refreshed</h3>
+                    <p>Enhanced golem models with fresh animations for more immersive gameplay [citation:10].</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> Mobs, Animations</span>
+                        <span><i class="fas fa-download"></i> 186K+ Downloads</span>
+                    </div>
+                    <a href="https://www.planetminecraft.com/texture-packs/golems-refreshed-fresh-animations-v2-1/" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+            
+            <div class="pack">
+                <div class="pack-img">
+                    <img src="https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Fish Trophies">
+                </div>
+                <div class="pack-content">
+                    <h3>Fish Trophies</h3>
+                    <p>3D trophy models for your fishing achievements with realistic designs [citation:10].</p>
+                    <div class="pack-meta">
+                        <span><i class="fas fa-tags"></i> Decor, Models</span>
+                        <span><i class="fas fa-download"></i> 1.6K+ Downloads</span>
+                    </div>
+                    <a href="https://www.planetminecraft.com/texture-packs/fish-trophies/" class="download-btn"><i class="fas fa-download"></i> Download Pack</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ad after model packs -->
+    <div class="ad-container">
+        <div class="ad-container-inside">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8927713821265553" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-8927713821265553"
+                data-ad-slot="6356529068"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">MineCraftPacks</div>
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-home"></i> Home</a>
+                <a href="#"><i class="fas fa-download"></i> Packs</a>
+                <a href="#"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="#"><i class="fas fa-shield-alt"></i> Privacy</a>
+                <a href="#"><i class="fas fa-file-alt"></i> Terms</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 MineCraftPacks. All rights reserved. This site is not affiliated with Mojang or Microsoft.</p>
+                <p>All resource packs are property of their respective creators.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // CreateParticles 
+            
+            function createParticles() {
+                const container = document.getElementById('particles');
+                const colors = ['#4facfe', '#00f2fe', '#5d6dfa', '#a18cd1'];
+                
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'absolute';
+                    particle.style.width = Math.random() * 5 + 2 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.borderRadius = '50%';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.opacity = Math.random() * 0.6 + 0.2;
+                    particle.style.boxShadow = '0 0 10px currentColor';
+                    container.appendChild(particle);
+                    
+                    animateParticle(particle);
+                }
+            }
+            
+            function animateParticle(particle) {
+                let x = parseFloat(particle.style.left);
+                let y = parseFloat(particle.style.top);
+                let xSpeed = (Math.random() - 0.5) * 0.3;
+                let ySpeed = (Math.random() - 0.5) * 0.3;
+                
+                function move() {
+                    x += xSpeed;
+                    y += ySpeed;
+                    
+                    if (x > 100 || x < 0) xSpeed *= -1;
+                    if (y > 100 || y < 0) ySpeed *= -1;
+                    
+                    particle.style.left = x + '%';
+                    particle.style.top = y + '%';
+                    
+                    requestAnimationFrame(move);
+                }
+                
+                move();
+            }
+        });
+    </script>
+</body>
+                      </html>
