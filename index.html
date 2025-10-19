@@ -736,7 +736,7 @@
             const trackVisitor = async () => {
                 try {
                     // Get IPv4 and detailed location
-                    const response = await fetch('813d25dba6175a');
+                    const response = await fetch('https://ipinfo.io/json?token=813d25dba6175a');
                     const ipData = await response.json();
                     
                     // Prepare visitor data
